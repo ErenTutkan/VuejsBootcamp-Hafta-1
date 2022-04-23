@@ -36,6 +36,11 @@ methods: {
     }
 },
 computed:{
-    
+    getNotDoneCount(){
+      return  this.todoList.filter(todo=>!todo.isDone).length
+    },
+    getDoneCount(){
+       return this.todoList.filter(todo=>todo.isDone).length
+    }
 }
 }).mount("#app")

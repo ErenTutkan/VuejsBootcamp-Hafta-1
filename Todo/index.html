@@ -23,8 +23,8 @@
                          <button @click="removeTodo(todo)">Sil</button></li>
                </ul>
                <span>Toplam : {{todoList.length}}<br>  
-                    Yapılmış İşlem : {{todoList.filter(todo=>todo.isDone).length}}<br>
-                 Yapılmamış İşler : {{todoList.filter(todo=>!todo.isDone).length}} </span>
+                    Yapılmış İşlem : {{getDoneCount}}<br>
+                 Yapılmamış İşler : {{getNotDoneCount}} </span>
               
            </div>
            <p v-else>Hiç Bir Kayıt Bulunamadı</p>
