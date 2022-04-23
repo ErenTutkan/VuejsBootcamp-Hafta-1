@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://unpkg.com/vue@3"></script>
+    
+</head>
+<body>
+    <div id="app">
+       <div class="container add-section">
+           <input type="text" v-model="todoItem" @keydown.enter="addNewTodo">
+           <button @click="addNewTodo">Ekle</button>
+       </div>
+       <div class="container">
+           <div v-if="todoList.length>0">
+               <ul class="todoList">
+                    <li v-for="todo in todoList" :class="{'border-green':todo.isDone}" class="list-item">
+                        <span>{{todo.text}}</span>  <input type="checkbox" name="todo.text" v-model="todo.isDone"> 
+                         <button @click="removeTodo(todo)">Sil</button></li>
+               </ul>
+               <span>Toplam : {{todoList.length}}<br>  
+                    Yapılmış İşlem : {{todoList.filter(todo=>todo.isDone).length}}<br>
+                 Yapılmamış İşler : {{todoList.filter(todo=>!todo.isDone).length}} </span>
+              
+           </div>
+           <p v-else>Hiç Bir Kayıt Bulunamadı</p>
+       </div>
+
+
+    
+
+    </div>
+
+
+   
+        <script src="./app.js"></script>
+</body>
+</html>
